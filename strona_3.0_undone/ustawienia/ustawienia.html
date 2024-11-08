@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ustawienia</title>
+    <link rel="stylesheet" href="style_ustawienia.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Ustawienia</h1>
+
+      <div class="setting">
+        <label> <input type="checkbox" id="themeToggle" /> Ciemny motyw </label>
+      </div>
+
+      <div class="setting">
+        <label>
+          Rozmiar czcionki:
+          <select id="fontSize">
+            <option value="normal">Normalny</option>
+            <option value="large">Duży</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="setting">
+        <label>
+          Język:
+          <select id="language">
+            <option value="pl">Polski</option>
+            <option value="en">Angielski</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="setting">
+        <label>
+          Kolor akcentu:
+          <select id="accentColor">
+            <option value="blue">Niebieski</option>
+            <option value="green">Zielony</option>
+            <option value="red">Czerwony</option>
+            <option value="purple">Fioletowy</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="setting">
+        <label>
+          <input type="checkbox" id="notificationsToggle" /> Powiadomienia
+        </label>
+      </div>
+
+      <div class="setting">
+        <label>
+          <input type="checkbox" id="privacyToggle" /> Anonimowe dane
+        </label>
+      </div>
+
+      <button id="resetButton">Resetuj ustawienia</button>
+    </div>
+
+    <script src="script_ustawienia.js"></script>
+  </body>
+</html>

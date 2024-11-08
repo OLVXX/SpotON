@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wyszukiwanie znajomych</title>
+</head>
+<body>
+    <h1>Wyszukaj znajomych</h1>
+    <input type="text" id="searchInput" placeholder="Wpisz nazwę znajomego" onkeyup="searchFriends()">
+    <ul id="results"></ul>
+
+    <h2>Twoi znajomi</h2>
+    <ul id="friendsList"></ul>
+    <!-- Kod wyświetlania zaproszeń w znajomi.html -->
+    <?php include('load_friends.php'); ?>
+
+
+    <script>
+        function searchFriends() {
+            const query = document.getElementById("searchInput").value;
+            if (query.length < 1) {
+                document.getElementById("results").innerHTML = "";
+                return;
+            }
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "search.php?query=" + encodeURIComponent(query), true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    const results = JSON.parse(xhr.responseText);
+                    let output = "";
+                    results.forEach(function(user) {
+                        output += `<li>${user.name} <button onclick="sendFriendRequest(${user.id})">Dodaj znajomego</button></li>`;
+                    });
+                    document.getElementById("results").innerHTML = output;
+                }
+            };
+            xhr.send();
+        }
+
+        function sendFriendRequest(receiverId) {
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "send_friend_request.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    const response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        alert("Zaproszenie zostało wysłane!");
+                    } else {
+                        alert(response.error);
+                    }
+                }
+            };
+            xhr.send("receiver_id=" + receiverId);
+        }
+
+        function loadFriends() {
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "load_friends.php", true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    const friends = JSON.parse(xhr.responseText);
+                    let output = "";
+                    friends.forEach(function(friend) {
+                        output += `<li>${friend.name}</li>`;
+                    });
+                    document.getElementById("friendsList").innerHTML = output;
+                }
+            };
+            xhr.send();
+        }
+
+        window.onload = loadFriends;
+    </script>
+</body>
+</html>
+

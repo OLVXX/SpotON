@@ -1,0 +1,88 @@
+/* Podstawowy styl dla całej strony */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f9; /* Jasne tło */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Kontener dla wyszukiwarki */
+.container {
+    width: 100%;
+    max-width: 400px; /* Zmniejszona szerokość kontenera */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Styl inputu wyszukiwania */
+#search {
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+    box-sizing: border-box;
+}
+
+/* Lista wyników */
+#results {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Styl dla kontenerów miast */
+.city-container {
+    display: block;
+    width: 100%;
+    height: 120px; /* Zmniejszona wysokość */
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Nazwa miasta na czarno */
+.city-name {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 16px; /* Zmniejszona czcionka */
+    font-weight: bold;
+    color: #000; /* Zmiana na czarny kolor */
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7); /* Cień tekstu, aby był dobrze widoczny na tle */
+}
+
+/* Efekt hover - cień i unoszenie */
+.city-container:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Styl dla responsywności */
+@media (max-width: 768px) {
+    .city-container {
+        height: 100px; /* Zmniejszenie kontenera na mniejszych ekranach */
+    }
+
+    .city-name {
+        font-size: 14px; /* Zmniejszenie tekstu */
+    }
+}

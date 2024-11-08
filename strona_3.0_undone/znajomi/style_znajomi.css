@@ -1,0 +1,49 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e9ecef;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h1 {
+  color: #343a40;
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.friends-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.friend-item {
+  background-color: #f8f9fa;
+  margin: 15px 0;
+  padding: 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.friend-item:hover {
+  background-color: #e2e6ea;
+  transform: translateY(-2px);
+}
+
+.friend-item:active {
+  transform: translateY(0);
+}

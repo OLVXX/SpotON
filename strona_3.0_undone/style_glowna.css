@@ -1,0 +1,131 @@
+/* style_glowna.css */
+
+/* Global Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(139, 146, 148, 1) 70%
+  );
+}
+
+/* Sidebar Styles */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px; /* Increased the sidebar width to 300px */
+  height: 100vh;
+  background-color: #f0f0f0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
+}
+
+.sidebar:not(.hidden) {
+  transform: translateX(0);
+}
+
+.hidden {
+  display: none;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.sidebar li a {
+  text-decoration: none;
+  color: #337ab7;
+}
+
+.sidebar li a:hover {
+  color: #23527c;
+}
+
+.sidebar .user-icon {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .user-icon img {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Menu Toggle Styles */
+
+.menu-toggle {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Map Container Styles */
+
+.map-container {
+  height: 600px;
+  margin-top: 20px;
+  margin-left: 300px; /* Add a left margin to accommodate the sidebar */
+}
+
+/* Additional Styles to Fix Map Container Issue */
+
+#map {
+  height: calc(
+    100vh - 20px
+  ); /* Adjust the map height to account for the top margin */
+  overflow: hidden; /* Prevent the map from overflowing its container */
+  width: calc(
+    100vw - 300px
+  ); /* Set the map width to the viewport width minus the sidebar width */
+}
+
+/* Leaflet Map Styles */
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+}
+
+.leaflet-control-attribution {
+  font-size: 12px;
+}
+
+.map-container .leaflet-container {
+  height: 100%;
+}
+
+.leaflet-container {
+  overflow: hidden;
+}
+
+/* Additional Styles to Fix Map Container Issue */
+
+#map {
+  height: 100vh; /* Set the map height to 100% of the viewport height */
+  overflow: hidden; /* Prevent the map from overflowing its container */
+}
